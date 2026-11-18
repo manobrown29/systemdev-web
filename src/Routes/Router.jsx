@@ -11,7 +11,14 @@ export default function Router() {
         <BrowserRouter>
             <Navbar/>
             <Routes>
-                <Route path="/" element={<Login/>}/>
+                <Route 
+                    path="/"
+                    element={
+                        logado === "true"
+                        ? <Navigate to="/homeLogado" />
+                        : <Login />    
+                    }
+                />
                 <Route path="/sobre" element={<Sobre/>}/>
                 <Route 
                     path="/homeLogado"
